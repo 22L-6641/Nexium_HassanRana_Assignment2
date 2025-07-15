@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Languages, FileText, CheckCircle, Database } from "lucide-react";
+import { Languages, FileText } from "lucide-react";
 
 interface SummaryDisplayProps {
   summary: {
@@ -64,26 +64,6 @@ const SummaryDisplay = ({ summary }: SummaryDisplayProps) => {
           </CardContent>
         </Card>
       </div>
-
-      {/* Storage Status */}
-      <Card className="shadow-lg border-0 bg-gradient-to-r from-green-50 to-blue-50">
-        <CardHeader>
-          <CardTitle className="text-lg flex items-center gap-2">
-            <Database className="h-5 w-5 text-green-600" />
-            Storage Status
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="flex flex-wrap gap-4">
-          <Badge variant="outline" className="flex items-center gap-2 px-4 py-2 bg-green-50 border-green-200">
-            <CheckCircle className="h-4 w-4 text-green-600" />
-            <span className="text-green-800">Summary saved to Supabase</span>
-          </Badge>
-          <Badge variant="outline" className="flex items-center gap-2 px-4 py-2 bg-blue-50 border-blue-200">
-            <CheckCircle className="h-4 w-4 text-blue-600" />
-            <span className="text-blue-800">Ready for MongoDB integration</span>
-          </Badge>
-        </CardContent>
-      </Card>
     </div>
   );
 };
