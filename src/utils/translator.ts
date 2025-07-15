@@ -60,7 +60,6 @@ const englishToUrduDict: { [key: string]: string } = {
   "strategy": "حکمت عملی",
   "implementation": "نفاذ",
   "practical": "عملی",
-  "effective": "مؤثر",
   "efficient": "موثر",
   "performance": "کارکردگی",
   "optimization": "بہتری",
@@ -198,8 +197,7 @@ const englishToUrduDict: { [key: string]: string } = {
   "low": "نیچا",
   "strong": "مضبوط",
   "weak": "کمزور",
-  "powerful": "طاقتور",
-  "effective": "مؤثر"
+  "powerful": "طاقتور"
 };
 
 export const translateText = (text: string): string => {
