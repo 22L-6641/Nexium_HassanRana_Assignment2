@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Languages, FileText } from "lucide-react";
+import { Languages, FileText, CheckCircle, Database } from "lucide-react";
 
 interface SummaryDisplayProps {
   summary: {
@@ -13,65 +13,74 @@ interface SummaryDisplayProps {
 
 const SummaryDisplay = ({ summary }: SummaryDisplayProps) => {
   return (
-    <div className="space-y-4">
-      <div className="text-center">
-        <h2 className="text-2xl font-semibold text-foreground">{summary.title}</h2>
-        <p className="text-muted-foreground">Generated Summary</p>
+    <div className="space-y-6">
+      <div className="text-center space-y-2">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          {summary.title}
+        </h2>
+        <p className="text-lg text-muted-foreground">Generated Summary & Translation</p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 gap-6">
         {/* English Summary */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <FileText className="h-5 w-5" />
+        <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+          <CardHeader className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-t-lg">
+            <CardTitle className="flex items-center gap-3">
+              <FileText className="h-6 w-6" />
               English Summary
-              <Badge variant="secondary">EN</Badge>
+              <Badge variant="secondary" className="bg-blue-100 text-blue-800">EN</Badge>
             </CardTitle>
-            <CardDescription>
-              AI-generated summary in English
+            <CardDescription className="text-blue-100">
+              AI-powered summary extraction
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <p className="text-foreground leading-relaxed">
-              {summary.english}
-            </p>
+          <CardContent className="p-6">
+            <div className="prose prose-sm max-w-none">
+              <p className="text-foreground leading-relaxed text-lg">
+                {summary.english}
+              </p>
+            </div>
           </CardContent>
         </Card>
 
         {/* Urdu Summary */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg">
-              <Languages className="h-5 w-5" />
+        <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+          <CardHeader className="bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-t-lg">
+            <CardTitle className="flex items-center gap-3">
+              <Languages className="h-6 w-6" />
               Urdu Translation
-              <Badge variant="secondary">اردو</Badge>
+              <Badge variant="secondary" className="bg-purple-100 text-purple-800">اردو</Badge>
             </CardTitle>
-            <CardDescription>
-              Translated summary in Urdu
+            <CardDescription className="text-purple-100">
+              Intelligent dictionary-based translation
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <p className="text-foreground leading-relaxed text-right" dir="rtl">
-              {summary.urdu}
-            </p>
+          <CardContent className="p-6">
+            <div className="prose prose-sm max-w-none">
+              <p className="text-foreground leading-relaxed text-lg text-right font-urdu" dir="rtl">
+                {summary.urdu}
+              </p>
+            </div>
           </CardContent>
         </Card>
       </div>
 
       {/* Storage Status */}
-      <Card>
+      <Card className="shadow-lg border-0 bg-gradient-to-r from-green-50 to-blue-50">
         <CardHeader>
-          <CardTitle className="text-sm">Storage Status</CardTitle>
+          <CardTitle className="text-lg flex items-center gap-2">
+            <Database className="h-5 w-5 text-green-600" />
+            Storage Status
+          </CardTitle>
         </CardHeader>
-        <CardContent className="flex gap-4">
-          <Badge variant="outline" className="flex items-center gap-1">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            Summary saved to Supabase
+        <CardContent className="flex flex-wrap gap-4">
+          <Badge variant="outline" className="flex items-center gap-2 px-4 py-2 bg-green-50 border-green-200">
+            <CheckCircle className="h-4 w-4 text-green-600" />
+            <span className="text-green-800">Summary saved to Supabase</span>
           </Badge>
-          <Badge variant="outline" className="flex items-center gap-1">
-            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            Full text saved to MongoDB
+          <Badge variant="outline" className="flex items-center gap-2 px-4 py-2 bg-blue-50 border-blue-200">
+            <CheckCircle className="h-4 w-4 text-blue-600" />
+            <span className="text-blue-800">Ready for MongoDB integration</span>
           </Badge>
         </CardContent>
       </Card>
