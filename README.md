@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/65ea6f12-b99a-4b6b-991f-28f4d8dbcb45
+**URL**: https://nexium-hassan-rana-assignment2.vercel.app/
 
 **Use your preferred IDE**
 
